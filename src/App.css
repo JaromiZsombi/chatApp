@@ -1,0 +1,34 @@
+.message.own div{
+    background-color: rgb(110, 228, 14);
+    margin-left: auto;
+}
+.message div{
+    background-color: aqua;
+    min-height: 96px;
+    min-width: 500px;
+    margin-bottom: 18px;
+}
+.message img{
+    max-width: 96px;
+    max-height: 96px;
+    float: left;
+}
+.message.own img{
+    float: right;
+}
+.message p{
+    margin: 0;
+}
+.message{
+    color: white;
+    justify-self: center;
+    max-width: 500px;
+}
+.chatRoom{
+    background-color: lightgray;
+    max-height: 700px;
+    overflow: auto;
+    max-width: 1000px;
+    padding: 30px;
+    justify-self: center;
+}

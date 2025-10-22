@@ -15,6 +15,7 @@ function App() {
     return unsub
   }, [])
 
+  console.log(user)
   return (
     <div>
       <h1>Realchat</h1>

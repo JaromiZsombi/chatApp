@@ -1,12 +1,20 @@
-import { Timestamp } from 'firebase/firestore';
-import React from 'react'
 import { useRef } from 'react';
 import { useState } from 'react'
-import { addMessage } from '../../utils';
+import { Message } from './Message';
+import { useEffect } from 'react';
+import { readMessages } from '../utils';
+import { addMessage } from '../utils';
 
 export const ChatRoom = ({user}) => {
   const [messages, setMessages] = useState([]);
-  const inputRef=useRef()
+  const inputRef=useRef() 
+
+  useEffect(()=>{
+    const unsubscribe=readMessages(setMessages)
+    return unsubscribe//cleanup: tisztító
+  },[])
+
+  console.log(messages);
 
   const handleSubmit=async (e)=>{
     e.preventDefault()
@@ -23,14 +31,16 @@ export const ChatRoom = ({user}) => {
     await addMessage(message)
   }
 
+
+
   return (
-    <div>
-        defautl chatasdjia
+    <div className='chatRoom'>  
         
         <form onSubmit={handleSubmit}>
           <input ref={inputRef} type="text" placeholder='írj valamit...' />
           <button type='submit'>Küldés</button>
         </form>
+        {messages && messages.map(msg=><Message key={msg.id} msg={msg} currentUser={user.uid}/>)}
     </div>
   )
 }
