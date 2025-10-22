@@ -26,7 +26,7 @@
 }
 .chatRoom{
     background-color: lightgray;
-    max-height: 700px;
+    max-height: 650px;
     overflow: auto;
     max-width: 1000px;
     padding: 30px;

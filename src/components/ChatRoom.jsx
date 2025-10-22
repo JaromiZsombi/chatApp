@@ -34,13 +34,16 @@ export const ChatRoom = ({user}) => {
 
 
   return (
-    <div className='chatRoom'>  
+    <div>  
         
         <form onSubmit={handleSubmit}>
           <input ref={inputRef} type="text" placeholder='írj valamit...' />
           <button type='submit'>Küldés</button>
         </form>
-        {messages && messages.map(msg=><Message key={msg.id} msg={msg} currentUser={user.uid}/>)}
+        <div className='chatRoom'>
+          {messages && messages.map(msg=><Message key={msg.id} msg={msg} currentUser={user.uid}/>)}
+        </div>
+        
     </div>
   )
 }
